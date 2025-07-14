@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://k7ys875c6dnq"]
+
+[ext_resource type="PackedScene" uid="uid://cyvsx11gxkdis" path="res://src/player.tscn" id="1_3msxb"]
+[ext_resource type="Script" uid="uid://dpi8d3f882da1" path="res://src/game.gd" id="1_kc8ui"]
+[ext_resource type="TileSet" uid="uid://drdwrni3f03tf" path="res://assets/tileset.tres" id="1_xq6wo"]
+[ext_resource type="PackedScene" uid="uid://cyg6b627w38kq" path="res://src/menu_section.tscn" id="2_xq6wo"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("bg_tilemap")]
+script = ExtResource("1_kc8ui")
+bg_tilemap = NodePath("BackgroundLayer")
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_xq6wo")
+
+[node name="Sections" type="Node" parent="."]
+
+[node name="MenuSection" parent="Sections" instance=ExtResource("2_xq6wo")]
+position = Vector2(-448, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_3msxb")]
+z_index = 1
+speed = 450.0
+turn_speed = 1.0

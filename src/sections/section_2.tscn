@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3v2qpuq5h4ui"]
+
+[ext_resource type="PackedScene" uid="uid://d10xtpqx32euf" path="res://src/section_template.tscn" id="1_7j0fj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seahv"]
+size = Vector2(1344, 1152)
+
+[sub_resource type="Curve2D" id="Curve2D_7j0fj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 640, 0, 0, 128, 0, 0, 896, -256, 0, 0, 0, 0, 896, -576)
+}
+point_count = 4
+
+[node name="Section2" instance=ExtResource("1_7j0fj")]
+
+[node name="CollisionShape2D" parent="VisibleArea" index="0"]
+position = Vector2(672, 0)
+shape = SubResource("RectangleShape2D_seahv")
+
+[node name="Road" parent="." index="1"]
+points = PackedVector2Array(0, 0, 24.3073, 0, 54.566, 0, 83.6688, 0, 105.683, 0, 129.514, 0, 154.926, 0, 181.686, 0, 209.56, 0, 238.312, 0, 267.709, 0, 297.516, 0, 327.499, 0, 357.424, 0, 387.055, 0, 416.159, 0, 444.501, 0, 471.848, 0, 497.963, 0, 522.614, 0, 545.566, 0, 566.584, 0, 601.882, 0, 628.892, 0, 651.996, -0.371094, 675.895, -3.26953, 699.512, -8.88672, 722.66, -17.0352, 745.152, -27.5273, 766.801, -40.1758, 787.418, -54.793, 806.816, -71.1914, 824.809, -89.1836, 841.207, -108.582, 855.824, -129.199, 868.473, -150.848, 878.965, -173.34, 887.113, -196.488, 892.73, -220.105, 895.629, -244.004, 896, -269.75, 896, -300.495, 896, -323.864, 896, -350.28, 896, -378.805, 896, -408.502, 896, -438.434, 896, -467.663, 896, -495.25, 896, -520.26, 896, -546.469, 896, -576, 896, -576)
+curve = SubResource("Curve2D_7j0fj")
+
+[node name="Path2D" parent="." index="2"]
+curve = SubResource("Curve2D_7j0fj")
+
+[node name="EndPoint" parent="." index="3"]
+position = Vector2(896, -576)
+rotation = -1.5708
+
+[node name="Point1" parent="BoundingBox" index="0"]
+position = Vector2(0, -576)
+
+[node name="Point2" parent="BoundingBox" index="1"]
+position = Vector2(1344, 576)

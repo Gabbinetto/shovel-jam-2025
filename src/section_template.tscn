@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://d10xtpqx32euf"]
+
+[ext_resource type="Script" uid="uid://3016g84vl4jq" path="res://src/section.gd" id="1_clusb"]
+[ext_resource type="Script" uid="uid://b4nx1wfc3vr27" path="res://src/curve_line_2d.gd" id="2_3i8gn"]
+
+[node name="SectionTemplate" type="Node2D" node_paths=PackedStringArray("road", "path", "follow", "visibility", "end_point", "bounding_box")]
+script = ExtResource("1_clusb")
+road = NodePath("Road")
+path = NodePath("Path2D")
+follow = NodePath("Path2D/PathFollow2D")
+visibility = NodePath("VisibleArea")
+end_point = NodePath("EndPoint")
+bounding_box = NodePath("BoundingBox")
+metadata/_custom_type_script = "uid://3016g84vl4jq"
+
+[node name="VisibleArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea"]
+debug_color = Color(0, 0.6, 0, 0.0784314)
+
+[node name="Road" type="Line2D" parent="."]
+width = 256.0
+default_color = Color(0.117647, 0.117647, 0.117647, 1)
+joint_mode = 2
+script = ExtResource("2_3i8gn")
+metadata/_custom_type_script = "uid://b4nx1wfc3vr27"
+metadata/_edit_lock_ = true
+
+[node name="Path2D" type="Path2D" parent="."]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+[node name="EndPoint" type="Marker2D" parent="."]
+
+[node name="BoundingBox" type="Node2D" parent="."]
+
+[node name="Point1" type="Marker2D" parent="BoundingBox"]
+
+[node name="Point2" type="Marker2D" parent="BoundingBox"]

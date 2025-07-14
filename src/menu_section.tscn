@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyg6b627w38kq"]
+
+[ext_resource type="PackedScene" uid="uid://d10xtpqx32euf" path="res://src/section_template.tscn" id="1_piw24"]
+[ext_resource type="Script" uid="uid://b5q4ax6330rr3" path="res://src/menu_section.gd" id="2_qqfba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piw24"]
+size = Vector2(896, 768)
+
+[sub_resource type="Curve2D" id="Curve2D_piw24"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 896, 0)
+}
+point_count = 2
+
+[node name="MenuSection" instance=ExtResource("1_piw24")]
+script = ExtResource("2_qqfba")
+
+[node name="CollisionShape2D" parent="VisibleArea" index="0"]
+position = Vector2(448, 0)
+shape = SubResource("RectangleShape2D_piw24")
+
+[node name="Road" parent="." index="1"]
+points = PackedVector2Array(0, 0, 25.8492, 0, 56.0488, 0, 79.514, 0, 106.301, 0, 136.083, 0, 168.531, 0, 203.316, 0, 240.112, 0, 278.588, 0, 310.863, 0, 331.092, 0, 351.551, 0, 372.201, 0, 392.999, 0, 413.904, 0, 434.877, 0, 455.875, 0, 476.857, 0, 497.783, 0, 518.612, 0, 539.303, 0, 559.813, 0, 580.104, 0, 607.568, 0, 646.414, 0, 683.661, 0, 718.979, 0, 752.042, 0, 782.521, 0, 810.088, 0, 834.414, 0, 861.97, 0, 890.278, 0, 896, 0)
+curve = SubResource("Curve2D_piw24")
+
+[node name="Path2D" parent="." index="2"]
+curve = SubResource("Curve2D_piw24")
+
+[node name="EndPoint" parent="." index="3"]
+position = Vector2(896, 0)
+
+[node name="Point1" parent="BoundingBox" index="0"]
+position = Vector2(0, -384)
+
+[node name="Point2" parent="BoundingBox" index="1"]
+position = Vector2(896, 384)
